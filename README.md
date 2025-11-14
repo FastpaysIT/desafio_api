@@ -1,6 +1,5 @@
 #  Desafio Backend Júnior - FastPays
 
-Bem-vindo ao desafio técnico da **FastPays**.
 O objetivo deste teste é avaliar seu domínio em construção de APIs, Docker, modelagem de banco de dados e qualidade de código (testes e validações).
 
 ---
@@ -24,28 +23,6 @@ Você é livre para escolher a tecnologia (Node.js, Python, Java, Go, C#, PHP, e
 
 ---
 
-## 🗄️ Regras de Dados (Banco de Dados)
-
-Abaixo estão as definições **estritas** dos campos que precisamos armazenar. Seu banco de dados deve respeitar esses limites.
-
-
-### Entidade: Empresa
-| Campo | Tipo SQL | Tamanho Limite | Obrigatório | Regra |
-| :--- | :--- | :--- | :--- | :--- |
-| `nome` | Varchar | 255 | Sim | - |
-| `cnpj` | Varchar | 14 | Sim | **Único**. Deve armazenar **apenas números**. |
-| `endereco` | Varchar | 255 | Sim | - |
-
-### Entidade: Pessoa
-| Campo | Tipo SQL | Tamanho Limite | Obrigatório | Regra |
-| :--- | :--- | :--- | :--- | :--- |
-| `nome` | Varchar | 255 | Sim | - |
-| `cpf` | Varchar | 11 | Sim | **Único**. Deve armazenar **apenas números**. |
-| `email` | Varchar | 255 | Sim | **Único**. Validar formato de e-mail. |
-
-*(Campos de ID (`Primary Key`) e timestamps ficam a seu critério).*
-
----
 
 ## Contrato da API (Entrada e Saída)
 
@@ -71,16 +48,11 @@ Sua API deve aceitar payloads JSON. Atente-se às discrepâncias entre o formato
   "empresaId": ____
 }
 ```
-* Receber o `empresaId` para vincular a pessoa à empresa.
-* Validar se a empresa informada existe. Caso não, retornar erro (400 ou 404).
-* Sanitizar o CPF (remover pontuação) antes de salvar.
-* Validar se o Email e CPF já existem (devem ser únicos).
+
 
 ### 3. Buscar Empresa por ID (`GET /empresas/{id}`)
 **Objetivo:** Retornar os dados de uma empresa específica.
-* **Comportamento Esperado:**
-    * Retornar HTTP 200 e o JSON da empresa caso encontrada.
-    * Retornar HTTP 404 (Not Found) caso o ID não exista.
+* **Saída Esperada:** Um array JSON com os objetos de empresa.
 
 ### 4. Listar Pessoas (`GET /pessoas`)
 **Objetivo:** Listar todas as pessoas cadastradas no sistema.
@@ -88,7 +60,6 @@ Sua API deve aceitar payloads JSON. Atente-se às discrepâncias entre o formato
 
 ### 5. Listar Pessoas de uma Empresa (`GET /empresas/{id}/pessoas`)
 **Objetivo:** Listar todos os colaboradores vinculados a uma empresa específica.
-* **Comportamento Esperado:**
+* **Saída Esperada:**
     * Receber o ID da empresa na URL.
     * Retornar a lista de pessoas que possuem o `empresaId` correspondente.
-    * *Dica:* Este endpoint serve para validar se o relacionamento entre as tabelas foi implementado corretamente.
