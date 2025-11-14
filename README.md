@@ -63,3 +63,14 @@ Sua API deve aceitar payloads JSON. Atente-se às discrepâncias entre o formato
 * **Saída Esperada:**
     * Receber o ID da empresa na URL.
     * Retornar a lista de pessoas que possuem o `empresaId` correspondente.
+
+
+## 📦 Como Entregar
+
+1.  Faça um **Fork** deste repositório.
+2.  Desenvolva a solução no seu perfil do GitHub (o repositório deve ser **Público**).
+3.  Envie o link do projeto finalizado para **[EMAIL DA EMPRESA]**.
+
+> **Importante:** Não esqueça de atualizar o arquivo `README.md` do seu projeto explicando como rodar a aplicação.
+
+    
